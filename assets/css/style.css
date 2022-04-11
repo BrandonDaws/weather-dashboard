@@ -1,0 +1,10 @@
+.nav-bar{
+ background-color: blue;
+ padding-bottom: 3px;
+ text-align: center;
+
+}
+
+#city-input {
+    display:inline-grid;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header class="nav-contain">
+    <nav class="nav-bar">
+        <h1 class="header">Weather DashBoard</h1>
+    </nav>
+    </header>
+ <div> 
+      <h2>Search for City</h2>
+         <input type="text" id="city" placeholder="Insert City Name">
+         <br>
+         <button onclick="citySearch()" type="submit" id="search">search</button>
+    
+ </div>    
+ <!--area that will have previously searched cities-->
+ <div class="prev-city">
+     <ul class="stored-cities">
+
+     </ul>
+ </div>
+ <!--container for both current and 5day forcast-->
+<div id="forecast">
+    <div class="currentForecast">
+
+    </div>
+    <br>
+    <div class="5day">
+        <h3> Five Day Forecast</h3>
+    </div>
+    
+</div>
+
+<script src="./assets/js/script.js"></script>
+</body>
+</html>
