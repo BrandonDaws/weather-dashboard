@@ -9,28 +9,58 @@ var apiKey = "&appid=087ab696412a7356255185b8f55d9574";
  var citySearch = function(){
 
      inputFormEl = document.getElementById("city").value;
-     const apiCall = "https://api.openweathermap.org/data/2.5/weather?&q=" + inputFormEl + apiKey ;
+     const apiCall = `https://api.openweathermap.org/data/2.5/weather?&q=` + inputFormEl + apiKey ;
 
     fetch(apiCall)
     .then(function(response){
         response.json()
         .then(function(data){
             console.log(data);
-
-        let lat = data.coord.lat;
-        let lon = data.coord.lon;
-         console.log(lat,lon)
-         
+            
+            getCity(data)
         })
-    }).then(function(){
-        var secCall = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&excluse=hourly,daily&appid=087ab696412a7356255185b8f55d9574";
-          fetch(secCall)
-          console.log(secCall);
-    })     
- }
- 
- 
+    }) 
+ };
 
+  var getCity = function(data){
+    var lat = data.coord.lat;
+    var lon = data.coord.lon;
+       
+   var secCall = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial` + apiKey
+
+ fetch(secCall)
+ .then(function(response){
+     response.json()
+     .then(function(data){
+         getWeather(data)
+     });
+ })
+  }
+ 
+ 
+ var getWeather = function(data){
+     //vars for all information i want displayed
+     console.log(data);
+  var temperature = data.current.temp;
+   var temperatureEl = document.createElement("p");
+temperatureEl.innerHTML = "Temperature: " + temperature
+
+var humid = data.current.humidity;
+  var humidityEl = document.createElement("p");
+  humidityEl.innerHTML = "Humidity Level: " + humid
+
+  var windSpeed = data.current.wind_speed;
+ var windSpeedEl = document.createElement("p");
+ windSpeedEl.innerHTML = "Wind Speed: " + windSpeed
+
+  var uvIndex = data.current.uvi;
+ var uvIndexEl = document.createElement("p");
+  uvIndexEl.innerHTML = "UV Index: " + uvIndex
+ 
+  
+
+
+ }
 
 
 
