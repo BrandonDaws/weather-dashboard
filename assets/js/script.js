@@ -5,6 +5,7 @@ var apiKey = "&appid=087ab696412a7356255185b8f55d9574";
  var userInputEl = document.getElementById("search");
  var currentDate = new Date;
  var foreCastEL = document.getElementsByClassName("currentForecast")
+ var dailyEl = document.getElementsByClassName("5day");
 
 //function to get weather by state/city name. this function will not actually display any data, instead it wil pass the lat and long of the searched city and pass that info to the 
  var citySearch = function(){
@@ -36,7 +37,8 @@ var apiKey = "&appid=087ab696412a7356255185b8f55d9574";
      response.json()
      .then(function(data){
          getWeather(data)
-        
+        dailyForecast(data);
+        console.log(data)
      });
  })
   }
@@ -93,6 +95,11 @@ var humid = data.current.humidity;
 
 
  }
+
+ var dailyForecast = function(data){
+
+ }
+
 
 
 
